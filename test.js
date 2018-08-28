@@ -1,5 +1,8 @@
 const puppeteer = require('puppeteer');
 
+var cookie = "%7B%22city%22%3A%22%E6%9D%AD%E5%B7%9E%22%2C%22constellation%22%3A%22%22%2C%22eleme_key%22%3A%229874261516b71c1c6621a82179f85fc5%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22Libertine%22%2C%22openid%22%3A%2202648EFD6526A29FBE5B363CBDF2BE11%22%2C%22province%22%3A%22%E6%B5%99%E6%B1%9F%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%221993%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22Libertine%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F02648EFD6526A29FBE5B363CBDF2BE11%2F40%22%7D; track_id=1535083207%7Cbbb39d41e51fbc71898c0fceac77d93b94c571fb99845aa952%7C34f9af60a359354b11fc5233fd843670";
+var url_ = "https://h5.ele.me/hongbao/?from=groupmessage&isappinstalled=0#hardware_id=&is_lucky_group=True&lucky_number=9&track_id=&platform=0&sn=2a06282ad6ac943b&theme_id=2969&device_id=&refer_user_id=7045342";
+
 (async () => {
 
   getRedHacket();
@@ -17,7 +20,7 @@ async function getRedHacket() {
   //此处只需要设置cookie中的snsInfo[101204453]即可无需设置全部cookie信息
   await page.setCookie({
     name: 'snsInfo[101204453]',
-    value: '%7B%22city%22%3A%22%E5%A5%89%E8%B4%A4%22%2C%22constellation%22%3A%22%22%2C%22eleme_key%22%3A%228c7743b4dc70705a910329ad4d6230f7%22%2C%22figureurl%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F30%22%2C%22figureurl_1%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F50%22%2C%22figureurl_2%22%3A%22http%3A%2F%2Fqzapp.qlogo.cn%2Fqzapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F100%22%2C%22figureurl_qq_1%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F40%22%2C%22figureurl_qq_2%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F100%22%2C%22gender%22%3A%22%E7%94%B7%22%2C%22is_lost%22%3A0%2C%22is_yellow_vip%22%3A%220%22%2C%22is_yellow_year_vip%22%3A%220%22%2C%22level%22%3A%220%22%2C%22msg%22%3A%22%22%2C%22nickname%22%3A%22Master%22%2C%22openid%22%3A%222103DB62F48733BFD88D741F4D5436E6%22%2C%22province%22%3A%22%E4%B8%8A%E6%B5%B7%22%2C%22ret%22%3A0%2C%22vip%22%3A%220%22%2C%22year%22%3A%222013%22%2C%22yellow_vip_level%22%3A%220%22%2C%22name%22%3A%22Master%22%2C%22avatar%22%3A%22http%3A%2F%2Fthirdqq.qlogo.cn%2Fqqapp%2F101204453%2F2103DB62F48733BFD88D741F4D5436E6%2F40%22%7D',
+    value: cookie,
     domain: '.ele.me',
     path: '/',
     expires: 4070851200,//过期时间
@@ -60,7 +63,7 @@ async function getRedHacket() {
     }
   });
 
-  await page.goto('https://h5.ele.me/hongbao/?from=groupmessage&isappinstalled=0#hardware_id=&is_lucky_group=True&lucky_number=6&track_id=&platform=0&sn=2a060e57572d104b&theme_id=2961&device_id=&refer_user_id=956934394',{
+  await page.goto(url_, {
           // 配置项
     waitUntil: 'networkidle2', // 等待网络状态为空闲的时候才继续执行
   });

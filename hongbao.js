@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
 });
 
 // input 输入内容
-var url = "https://h5.ele.me/hongbao/#hardware_id=&is_lucky_group=True&lucky_number=6&track_id=&platform=4&sn=2a04dedaf52cd885&theme_id=2937&device_id=&refer_user_id=34803533"
-var userPhone = "15168412127"
+var url = "https://h5.ele.me/hongbao/?from=groupmessage&isappinstalled=0#hardware_id=&is_lucky_group=True&lucky_number=8&track_id=&platform=0&sn=2a06f1b939afc0fe&theme_id=2985&device_id=&refer_user_id=252137080"
+var userPhone = "15757101582"
 
 // 用来存放排除的user的数组
 var notArray = [];
@@ -48,7 +48,7 @@ var luckyNumber; //最大红包数位置
 })();
 
 async function scape() {
-  connection.query('select * from ele_user where ele_user.phone not in (' + notArray + ') and ele_user.count > 0 and ele_user.count = (select ele_status.number from ele_status limit 1) limit 1', function (error, results, fields) {
+  connection.query('select * from ele_user where ele_user.phone not in (' + notArray + ') and ele_user.count > 0 and ele_user.count >= (select ele_status.number from ele_status limit 1) limit 1', function (error, results, fields) {
     if (error) throw error;
 
     // 去拿到垫刀的cookie
@@ -80,7 +80,7 @@ async function goPuppeteer(resultsParam) {
 
   const browser = await puppeteer.launch({
     //关闭无头模式，方便我们看到这个无头浏览器执行的过程
-    headless: false,
+    headless: true,
   });
   const page = await browser.newPage();
   //设置UA头
@@ -262,13 +262,6 @@ async function getBig() {
           });
           
           console.log(numberNow)
-        }
-      );
-    } else {
-      console.log(response.url());
-      response.text().then(
-        (res)=>{
-          console.log(res)
         }
       );
     }
